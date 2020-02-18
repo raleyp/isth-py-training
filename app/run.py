@@ -1,4 +1,4 @@
-from adaptor import file_routes as file
-from domain.model import Usuario
+from app.adaptor import file_routes as file
+from app.domain.model import Usuario
 
 print('Iniciando')
