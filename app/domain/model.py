@@ -1,17 +1,15 @@
-from related import to_model, to_dict, from_json
-import related
 
-
-@related.mutable
-class Usuario:
-    Username = related.StringField(required=False)
-    Nombre = related.StringField(required=False)
-    Apellido = related.StringField(required=False)
+class Client:
+    CIF = 1
+    Name = 'Default'
+    LastName = 'Default'
+    Link = 'Default'
+    age = 18
+    isAdult = True
 
     @staticmethod
-    def load(dictionary):
-        return to_model(Usuario, dictionary)
+    def load(objeto):
+        return related.from_json(objeto, Client)
 
     def provide(self):
-        d = to_dict(self)
-        return d
+        return related.to_json(self)
