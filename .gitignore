@@ -1,0 +1,10 @@
+.vscode/
+.idea/
+*.pyc
+*.log
+.tox
+.DS_Store
+build.json
+env/*
+__pycache__
+.pytest*
