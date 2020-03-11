@@ -12,5 +12,9 @@ def get(id):
 def post(client):
     """Get a client"""
     print('client_service.post')
+    if client.age > 17:
+        client.isAdult = True
+    else:
+        client.isAdult = False
     # TODO: calculate if the client is an adult and save it on isAdult
     return client_repository.create_client(client)

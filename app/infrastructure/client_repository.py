@@ -12,10 +12,14 @@ class clientRepository:
     def get_client(self, id):
         print('client_repository.get_client')
         cursor = self.mydb.cursor()
-        cursor.execute(clientSql.GET)
+        cursor.execute(clientSql.GET.format(id))
         result = cursor.fetchall()
         return result
 
     def create_client(self, client):
         print('client_repository.create_client')
-        return NotImplementedError
+        cursor = self.mydb.cursor()
+        isAdult = 1 if client.isAdult else 0
+        sql = clientSql.INSERT.format(client.CIF, client.Name, Client.LastName, Client.Link, Client.age, isAdult)
+        cursor.execute(sql)
+        return self.get_client(client.CIF)
