@@ -20,6 +20,6 @@ class clientRepository:
         print('client_repository.create_client')
         cursor = self.mydb.cursor()
         isAdult = 1 if client.isAdult else 0
-        sql = clientSql.INSERT.format(client.CIF, client.Name, Client.LastName, Client.Link, Client.age, isAdult)
+        sql = clientSql.INSERT.format(client.CIF, client.Name, client.LastName, client.Link, client.age, isAdult)
         cursor.execute(sql)
         return self.get_client(client.CIF)
